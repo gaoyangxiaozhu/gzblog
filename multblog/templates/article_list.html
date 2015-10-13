@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <h1>文章列表</h1>
+    <ul>
+        {% for article in category.related_article_list %}
+            <li>
+                <h2>{{ article.title }} ---
+                {%  for CATEGORY in article.category.all %}
+                    {{ CATEGORY.category }}
+                {% endfor %}
+                </h2>
+                <p>{{ article.post_time }}</p>
+                <div>{{ article.content }}</div>
+
+            </li>
+
+        {%  endfor %}
+
+    </ul>
+
+
+</body>
+</html>

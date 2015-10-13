@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <h1>文章详细页面</h1>
+    <p>
+        {{ article.title }}
+        {%  for CATEGORY in article.category.all %}
+            ---{{ CATEGORY.category }}
+        {% endfor %}
+        {{ article.post_time }}
+        {{ article.get_content }}
+    </p>
+</body>
+</html>
