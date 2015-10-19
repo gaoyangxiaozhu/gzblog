@@ -7,7 +7,7 @@ class UserAccount(models.Model):
     current_job = models.CharField(max_length=100)
     avatar = models.URLField(blank=True)
     def __str__(self):
-        return 'name: '+self.username+" work: "+self.current_job
+        return self.username
 
 class Categories(models.Model):
     category = models.CharField(max_length=60, default='live')
@@ -22,7 +22,8 @@ class Article(models.Model):
     post_time = models.DateTimeField(auto_now_add=True)
     content = models.TextField(default='write some content in here!')
     category=models.ManyToManyField(Categories)
-
+    def __str__(self):
+        return self.title
     def get_author(self):
         currentUser= UserAccount.objects.get(pk=self.author_id)
         return currentUser.username

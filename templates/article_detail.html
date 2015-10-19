@@ -6,13 +6,44 @@
 </head>
 <body>
     <h1>文章详细页面</h1>
-    <p>
-        {{ article.title }}
-        {%  for CATEGORY in article.category.all %}
-            ---{{ CATEGORY.category }}
+    <sectoion class="article">
+        <article>
+            <h2>{{ article.title }}</h2>
+            <p class="details">
+                <span class="author">{{ article.author }}</span>
+                <span class="time">{{ article.post_time }}</span>
+            </p>
+            <p class="content">
+                {{ article.content }}
+            </p>
+        </article>
+    </sectoion>
+    <section class="comment">
+        {% for related_comment in related_comments %}
+            <div class="commment-{{ forloop.counter }} comment-body">
+                <div class="comment-header">
+                    <span class="comment-avator">
+                        <img src="#" alt="img">
+                    </span>
+                    <span class="comment-name">
+                        {{ related_comment.comment_people }}
+                    </span>
+                </div>
+                <p class="comment-content">
+                    {{ related_comment.content }}
+                </p>
+                <div class="comment-footer">
+                    <span class="comment-time">
+                    {{ related_comment.time|date:"Y-m-d H:i:s" }}
+                    </span>
+                </div>
+                <div>
+                    {{ related_comment.get_related_comments|safe }}
+                </div>
+            </div>
         {% endfor %}
-        {{ article.post_time }}
-        {{ article.get_content }}
+
+    </section>
 
     </p>
 </body>

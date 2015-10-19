@@ -1,0 +1,54 @@
+$hr-color = #eaebec
+$darkorange = #c75344
+$blue = #3AAA7D
+$grey = #7C7474
+$orange = #d9534f
+$cold = #555
+
+$default-input-width = 300px
+$half-input-width = 160px
+
+$font-size($size)
+    font-size unit($size, px)
+    font-size unit($size/10, rem)
+
+$border-radius($length = 4px)
+  -webkit-border-radius $length
+  -moz-border-radius $length
+  border-radius $length
+
+$appearance($value = none)
+  -webkit-appearance $value /*Safari/Chrome*/
+  -moz-appearance $value /*Firefox*/
+  -ms-appearance $value /*IE*/
+  -o-appearance $value /*Opera*/
+  appearance $value
+
+$heading-style($color = $purple, $padding = 5px)
+  padding-top $padding
+  padding-bottom $padding
+  padding-left 16px
+
+  color $purple
+  border-left 4px solid $color
+
+$transition($prop, $time, $timing-function = ease)
+  -webkit-transition $prop $time $timing-function
+  -moz-transition $prop $time $timing-function
+  -ms-transition $prop $time $timing-function
+  -o-transition $prop $time $timing-function
+  transition $prop $time $timing-function
+
+$transform($behav)
+  -webkit-transform $behav
+  -moz-transform $behav
+  -ms-transform $behav
+  -o-transform $behav
+  transform $behav
+$hyphens($value= auto)
+  -webkit-hyphens auto
+  -moz-hyphens auto
+  -ms-hyphens auto
+  -o-hypens auto
+  hypens auto
+

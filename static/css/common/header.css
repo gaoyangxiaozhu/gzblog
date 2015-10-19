@@ -1,0 +1,39 @@
+.header {
+  height: 60px;
+  line-height: 60px;
+  z-index: 9999;
+}
+.header small {
+  $font-size: 14;
+}
+.header .header-logo {
+  float: left;
+}
+.header .header-logo a {
+  $font-size: 20;
+  padding-right: 0;
+}
+.nav {
+  float: left;
+}
+.nav ul li {
+  float: left;
+}
+.navbar-fixed-top {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+.navbar-inverse {
+  background-color: #000;
+  color: #fff;
+}
+.navbar-inverse a {
+  padding: 0 20px;
+  $font-size: 15;
+  color: #ccc;
+}
+.navbar-inverse a:hover {
+  color: #fff;
+}

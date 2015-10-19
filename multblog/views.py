@@ -1,4 +1,4 @@
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, Http404
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.views import generic
@@ -13,8 +13,17 @@ class IndexView(generic.ListView):
     def get_queryset(self):
         return Article.objects.all()
 class ArticleContentView(generic.DetailView):
-    model = Article
     template_name = 'article_detail.html'
+
+    def get(self, request, *args, **kwargs):
+        context = dict()
+        try:
+            context['article'] = Article.objects.get(pk=kwargs['pk'])
+        except:
+            raise Http404
+        context['related_comments'] = Article.objects.get(pk=kwargs['pk']).comment_set.all()
+        return self.render_to_response(context=context)
+
 def showArticleByCategory(request, category):
     category = get_object_or_404(Categories, category=category)
     return render(request, 'article_list.html', {'category': category})

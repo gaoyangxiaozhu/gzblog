@@ -1,25 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
-    <h1>首页</h1>
-    <ul>
-        {% for article in article_list %}
-            <li>
-            <h2>
-                <a href="{% url 'content' article.id %}">
-                {{article.title  }}
-                </a>
-            </h2>
-            <p>{{ article.post_time }}</p>
-            <p>{{ article.get_author }}</p>
-            </li>
-        {%  endfor  %}
+{% extends 'include/base.html' %}
+{% load staticfiles %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+{% block header %}
+    {% include 'include/header.html' %}
+{%  endblock %}
+{% block content %}
+         <section class="intro-site intro-section intro-section-blank">
+            <div class="container">
+                <div class="col-lg-offset-1 col-lg-9">
+                    <h1>What Site it is ?</h1>
+                     <p class="intro-content">
+                        这是一个多人博客系统，目前正处于开发测试阶段，目前分为两个板块--生活碎和技术区，其中生活碎主要用于分享
+                     日常生活中的见闻趣事，技术区主要用于分享平时学习中接触到的喜欢的各个技术知识
+                    </p>
+                </div>
 
-    </ul>
+             </div>
+        </section>
+        <section class="intro-site intro-section intro-section-orange">
+                <h1>What can you get from there ?</h1>
+                <p class="intro-content">
+                    这是一个多人博客系统，目前正处于开发测试阶段，目前分为两个板块--生活碎和技术区，其中生活碎主要用于分享
+                    日常生活中的见闻趣事，技术区主要用于分享平时学习中接触到的喜欢的各个技术知识
+                </p>
+        </section>
+        <section class="article-list main-article-list">
 
-</body>
-</html>
+                        {% for article in article_list %}
+                            <article class="article-item" id="article={{ forloop.counter }}">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-8 col-sm-12 col-md-offset-2">
+                                            <h2 class="title">
+                                                <a href="#" class="grey-link">
+                                                    {{ article.title }}
+                                                </a>
+                                            </h2>
+                                            <div class="entry-content">
+                                                <div class="author-detail">
+                                                    <img src="#" alt="avator">
+                                                    <a href="#" class="author orange-link">{{ article.author }}</a>
+                                                    <span class="time">
+                                                        <i></i>
+                                                        {{ article.post_time }}
+                                                    </span>
+                                                </div>
+                                                <p>
+                                                    {{ article.content|slice:"200" }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                 </div>
+                            </article>
+                        {% endfor %}
+
+
+        </section>
+
+
+{% endblock %}
+{% block footer %}
+{% endblock %}
