@@ -427,3 +427,116 @@ img.avatar.img-avatar-medium {
 .navbar-inverse a:hover {
   color: #fff;
 }
+article {
+  padding: 70px 0 60px;
+  margin: 0;
+}
+article:nth-child(even) {
+  background-color: #fff;
+}
+.author_av_home,
+.post_author_home {
+  float: left;
+}
+.post_author_home {
+  padding-top: 9px;
+}
+.article-item h2.title {
+  box-shadow: 6px 0 0 #3aaa7d inset;
+  font-size: 30px;
+  font-size: 3rem;
+  margin-bottom: 30px;
+  padding-left: 20px;
+  margin-left: -20px;
+}
+.entry-content {
+  position: relative;
+  font-size: 15px;
+  line-height: 1.8;
+  background: #fff;
+  padding: 18px;
+  box-shadow: 0 0 1px 1px #ddd;
+  margin-right: -17px;
+}
+.entry-content .author-detail {
+  height: 56px;
+  font-size: 13px;
+  font-size: 1.3rem;
+  color: #aaa;
+}
+.comment-list .comment-item {
+  margin-bottom: 20px;
+}
+.comment-list .comment-body {
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  padding: 20px;
+  background: #fff;
+  display: block;
+  z-index: 100;
+  position: relative;
+}
+.comment-list .comment-content .comment-author,
+.comment-list .comment-content .comment-time,
+.comment-list .comment-content .comment-text {
+  padding-left: 40px;
+  font-size: 19px;
+  font-size: 1.9rem;
+}
+.comment-list .comment-content .comment-author {
+  font-size: 23px;
+  font-size: 2.3rem;
+  line-height: 27px;
+  height: 30px;
+}
+.comment-list .comment-content .comment-author .reply-author {
+  display: inline-block;
+}
+.comment-list .comment-content .comment-author .reply-author .re-text {
+  color: #d9534f;
+}
+.comment-list .comment-content .comment-time {
+  font-size: 15px;
+  font-size: 1.5rem;
+  font-style: italic;
+}
+.comment-list .comment-content .comment-text {
+  padding-top: 5px;
+}
+.comment-list .comment-children-list {
+  padding-left: 25px;
+}
+.comment-list .comment-children-list:not(:empty) {
+  margin-top: 10px;
+}
+.comment-list .comment-children-list .comment-children {
+  padding: 10px 10px 10px 0;
+}
+.comment-list .comment-children-list .comment-children:nth-child(1) {
+  border-top: 1px solid rgba(0,0,0,0.13);
+}
+.comment-list .comment-children-list .comment-children .comment-author {
+  font-size: 16px;
+  font-size: 1.6rem;
+}
+.comment-respond {
+  margin-bottom: 50px;
+  padding: 5px;
+}
+.comment-respond .comment-reply-title {
+  margin-top: 50px;
+  font-size: 1.8rem;
+  color: #3aaa7d;
+}
+.comment-respond .comment-form input {
+  display: block;
+}
+.comment-respond .comment-form textarea {
+  width: 100%;
+  overflow: auto;
+}
+p.comment-notes {
+  font-size: 14px;
+  font-size: 1.4rem;
+}

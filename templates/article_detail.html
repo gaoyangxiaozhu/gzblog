@@ -1,50 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
-    <h1>文章详细页面</h1>
-    <sectoion class="article">
-        <article>
-            <h2>{{ article.title }}</h2>
-            <p class="details">
-                <span class="author">{{ article.author }}</span>
-                <span class="time">{{ article.post_time }}</span>
-            </p>
-            <p class="content">
-                {{ article.content }}
-            </p>
-        </article>
-    </sectoion>
-    <section class="comment">
-        {% for related_comment in related_comments %}
-            <div class="commment-{{ forloop.counter }} comment-body">
-                <div class="comment-header">
-                    <span class="comment-avator">
-                        <img src="#" alt="img">
-                    </span>
-                    <span class="comment-name">
-                        {{ related_comment.comment_people }}
-                    </span>
-                </div>
-                <p class="comment-content">
-                    {{ related_comment.content }}
-                </p>
-                <div class="comment-footer">
-                    <span class="comment-time">
-                    {{ related_comment.time|date:"Y-m-d H:i:s" }}
-                    </span>
-                </div>
-                <div>
-                    {{ related_comment.get_related_comments|safe }}
-                </div>
+{% extends 'include/base.html' %}
+{% load staticfiles %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/article_detail.css' %}">
+{% endblock %}
+{% block header %}
+    {% include 'include/header.html' %}
+{%  endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8  primary">
+                <sectoion class="article article-item">
+                    <article>
+                        <h2 class="title">
+                            <a href="/post/{{ article.id }}" class="grey-link">
+                                {{ article.title }}
+                            </a>
+                        </h2>
+                        <div class="entry-content">
+                            <div class="author-detail">
+                                <div class="author_av_home float-clear">
+                                    <img src="{% static 'imags/avatar.png' %}" alt="avatar" class="img-avatar-medium avatar">
+                                </div>
+                                <div class="post_author_home">
+                                    <a href="#" class="author orange-link">{{ article.author }}</a>
+                                    <span class="time">
+                                        <i></i>
+                                        {{ article.post_time }}
+                                    </span>
+                                </div>
+
+                            </div>
+                            <p>
+                                {{ article.content }}
+                            </p>
+                        </div>
+                    </article>
+                </sectoion>
+                <section class="comment-section">
+                    {% include 'include/comment_list.html' %}
+                    {% include 'include/comment_form.html' %}
+                </section>
             </div>
-        {% endfor %}
+            <div class="col-md-4 aside">
 
-    </section>
-
-    </p>
-</body>
-</html>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block footer %}
+{% endblock %}

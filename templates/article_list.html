@@ -1,28 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
-    <h1>文章列表</h1>
-    <ul>
-        {% for article in category.related_article_list %}
-            <li>
-                <h2>{{ article.title }} ---
-                {%  for CATEGORY in article.category.all %}
-                    {{ CATEGORY.category }}
-                {% endfor %}
+<article class="article-item" id="article={{ forloop.counter }}">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-sm-12 col-md-offset-2">
+                <h2 class="title">
+                    <a href="/post/{{ article.id }}" class="grey-link">
+                        {{ article.title }}
+                    </a>
                 </h2>
-                <p>{{ article.post_time }}</p>
-                <div>{{ article.content }}</div>
-
-            </li>
-
-        {%  endfor %}
-
-    </ul>
-
-
-</body>
-</html>
+                <div class="entry-content">
+                    <div class="author-detail">
+                        <img src="#" alt="avator">
+                        <a href="#" class="author orange-link">{{ article.author }}</a>
+                        <span class="time">
+                            <i></i>
+                            {{ article.post_time }}
+                        </span>
+                    </div>
+                    <p>
+                        {{ article.content|slice:"200" }}
+                    </p>
+                </div>
+            </div>
+        </div>
+     </div>
+</article>

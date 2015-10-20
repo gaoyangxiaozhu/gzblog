@@ -22,6 +22,7 @@ class Article(models.Model):
     post_time = models.DateTimeField(auto_now_add=True)
     content = models.TextField(default='write some content in here!')
     category=models.ManyToManyField(Categories)
+
     def __str__(self):
         return self.title
     def get_author(self):
@@ -29,5 +30,6 @@ class Article(models.Model):
         return currentUser.username
     def get_content(self):
         return self.content
+
 
 

@@ -12,7 +12,7 @@ class IndexView(generic.ListView):
 
     def get_queryset(self):
         return Article.objects.all()
-class ArticleContentView(generic.DetailView):
+class ArticleDetailsView(generic.DetailView):
     template_name = 'article_detail.html'
 
     def get(self, request, *args, **kwargs):

@@ -12,7 +12,7 @@ def getComment(request):
     for comment in commentList:
         htmlContent += '<div>'+comment.content+' time'+ comment.time+comment.get_comment_tree()+'</div>'
 
-    return render(request, 'comment.html', {'htmlContent': htmlContent})
+    return render(request, 'include/comment_list.html', {'htmlContent': htmlContent})
 
 
 

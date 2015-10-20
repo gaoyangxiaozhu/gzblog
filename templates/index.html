@@ -29,32 +29,7 @@
         <section class="article-list main-article-list">
 
                         {% for article in article_list %}
-                            <article class="article-item" id="article={{ forloop.counter }}">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-md-8 col-sm-12 col-md-offset-2">
-                                            <h2 class="title">
-                                                <a href="#" class="grey-link">
-                                                    {{ article.title }}
-                                                </a>
-                                            </h2>
-                                            <div class="entry-content">
-                                                <div class="author-detail">
-                                                    <img src="#" alt="avator">
-                                                    <a href="#" class="author orange-link">{{ article.author }}</a>
-                                                    <span class="time">
-                                                        <i></i>
-                                                        {{ article.post_time }}
-                                                    </span>
-                                                </div>
-                                                <p>
-                                                    {{ article.content|slice:"200" }}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                 </div>
-                            </article>
+                            {% include 'article_list.html' %}
                         {% endfor %}
 
 
