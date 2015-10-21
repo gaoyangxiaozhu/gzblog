@@ -36,7 +36,7 @@ def get_comment_text(text):
 def get_comment_content(comment, re_comment):
     div_content_html=\
     "<div class='comment-content'>"+\
-        get_comment_author(comment.comment_people.__str__(), re_comment.comment_people.__str__())+\
+        get_comment_author(comment.author.name.__str__(), re_comment.author.name.__str__())+\
         get_comment_time(comment.time.strftime('%Y-%m-%d %H:%M:%S'))+\
         get_comment_text(comment.content.__str__())+\
     "</div>"
@@ -56,16 +56,19 @@ def get_comment_body(comment):
             comment+\
             "</div>"
 
+class CommentPeople(models.Model):
+    name=models.CharField(max_length=100)
+    email=models.CharField(max_length=100)
+    webSite=models.CharField(max_length=100)
 
 class Comment(models.Model):
 
     article = models.ForeignKey(Article, null=True, blank=True)
+    author = models.ForeignKey(CommentPeople)
     relate_comment = models.ManyToManyField('self', symmetrical=False, blank=True)
     time = models.DateTimeField()
-    comment_people = models.CharField(max_length=100)
     content = models.TextField()
-    email = models.CharField(max_length=100)
-    webSite = models.CharField(max_length=100)
+
 
     def get_comment_html_tree(self):
         comment_html=''
