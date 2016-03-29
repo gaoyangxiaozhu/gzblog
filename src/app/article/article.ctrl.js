@@ -1,10 +1,12 @@
 (function () {
   'use strict';
 
-  angular.module('jackblog.article')
+  angular.module('gzblog.article')
     .controller('ArticleCtrl', function ($rootScope,$scope,$log,$state,$location,lodash,toaster,Auth,Blog,Comment,$stateParams) {
 
+    // 获取文章id
       $scope.aid = $stateParams.aid;
+    //  如果没有id　返回首页
       if(!$scope.aid){
         $state.go('home');
       }
@@ -13,7 +15,8 @@
 
       //获取文章
       Blog.getFrontArticle({id:$scope.aid}).then(function (result) {
-        $scope.article = result.data;
+        $scope.article = result.article_info;
+        $scope.author = result.author_info;
       }).then(function () {
         var options = {
           id:$scope.aid,
@@ -29,7 +32,7 @@
           $scope.prev = result.data.prev || {};
         });
       }).catch(function () {
-        $state.go('home'); 
+        $state.go('home');
       });
       //获取评论.
       Comment.getFrontCommentList({id:$scope.aid}).then(function (result) {

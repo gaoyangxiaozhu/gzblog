@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('jackblog.resources')
+  angular.module('gzblog.resources')
     .factory('Comment', function($resource){
       var commentResource = $resource('/api/comment/:id/:controller', {
           id: '@_id'
@@ -79,4 +79,3 @@
 
     });
 })();
-

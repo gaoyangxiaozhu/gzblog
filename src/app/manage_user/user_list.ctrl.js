@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('jackblog.manage')
+  angular.module('gzblog.manage')
     .controller('UserListCtrl', function ($scope,$modal,$state,User,toaster) {
      //初始数据
      $scope.options = {
@@ -32,7 +32,7 @@
       });
      }
 
-     
+
       //删除
       $scope.del = function (user) {
         if(confirm('你确定要删除这个用户吗?')) {
@@ -116,4 +116,3 @@
       };
     });
 })();
-

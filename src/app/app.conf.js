@@ -1,6 +1,6 @@
 (function(){
- 'use strict'; 
- angular.module('jackblog')
-.constant('IsDebug', false);
- 
+ 'use strict';
+ angular.module('gzblog')
+.constant('IsDebug', true);
+
  })();

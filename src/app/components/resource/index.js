@@ -1,7 +1,7 @@
 (function () {
 	'use strict';
 
-	angular.module('jackblog.resources',[
+	angular.module('gzblog.resources',[
 		'ngResource'
 	]);
 })();

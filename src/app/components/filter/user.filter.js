@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('jackblog.filter',[])
+  angular.module('gzblog.filter',[])
     .filter('userStatus',function(){
       return function(item){
         var statusName;
@@ -54,4 +54,3 @@
       };
     });
 })();
-

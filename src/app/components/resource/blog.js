@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('jackblog.resources')
+  angular.module('gzblog.resources')
     .factory('Blog', function($resource){
       var blogResource = $resource('/api/blog/:id/:controller', {
           id: '@_id'
@@ -127,11 +127,13 @@
           }).$promise;
         },
         //前台数据
-        getFrontBlogList:function (data,callback) {
+        getFrontBlogList:function (data, callback) {
           var cb = callback || angular.noop;
           return blogResource.getFrontBlogList(data,function(result) {
+              console.log(result);
             return cb(result);
           }, function(err) {
+              console.log('err: '+err);
             return cb(err);
           }).$promise;
         },
@@ -180,4 +182,3 @@
 
     });
 })();
-

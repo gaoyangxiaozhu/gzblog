@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('jackblog.manage')
+  angular.module('gzblog.manage')
     .controller('BlogEditCtrl', function ($scope,$state,Tags,$log,Blog,lodash,$stateParams,toaster,$modal) {
       //初始化markdown
       $scope.aid = $stateParams.aid;
@@ -62,8 +62,8 @@
           $state.reload();
         }).catch(function (err) {
           err = err.data.error_msg || '保存文章失败.';
-          toaster.pop('error', '', err);  
-        }); 
+          toaster.pop('error', '', err);
+        });
       };
     });
 })();

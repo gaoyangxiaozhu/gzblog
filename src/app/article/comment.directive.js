@@ -1,7 +1,7 @@
 (function () {
 	'use strict';
 
-	angular.module('jackblog.article')
+	angular.module('gzblog.article')
 		.directive('comment',function ($rootScope,Comment,$timeout,$log,toaster,Auth) {
 			return {
 				restrict:'E',

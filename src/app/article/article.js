@@ -1,7 +1,7 @@
 (function () {
 	'use strict';
 
-	angular.module('jackblog.article',[])
+	angular.module('gzblog.article',[])
 	  .config(function ($stateProvider) {
 	    $stateProvider
 	      .state('article', {

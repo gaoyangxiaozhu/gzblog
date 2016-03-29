@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('jackblog.manage',[])
+  angular.module('gzblog.manage',[])
     .config(function ($stateProvider) {
       $stateProvider
         .state('blogWrite', {

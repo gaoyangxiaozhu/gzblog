@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('jackblog.settings')
+  angular.module('gzblog.settings')
     .controller('SettingCtrl', function ($scope,User,Auth,toaster,$state) {
       $scope.user = User.get();
 

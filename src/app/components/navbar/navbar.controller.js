@@ -1,8 +1,8 @@
 (function () {
-	
+
 	'use strict';
 
-	angular.module('jackblog')
+	angular.module('gzblog')
 	  .controller('NavbarCtrl', function ($rootScope,$scope,$state,Auth) {
 	    $scope.isLoggedIn = Auth.isLoggedIn;
 	    $scope.isAdmin = Auth.isAdmin;

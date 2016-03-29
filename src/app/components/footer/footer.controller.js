@@ -1,8 +1,8 @@
 (function () {
 	'use strict';
 
-	angular.module('jackblog')
+	angular.module('gzblog')
 	  .controller('FooterCtrl', function ($scope) {
-	      $scope.beian = '©2015 / 鄂ICP备15010989号-1';
+	      $scope.beian = '©2016 /备案';
 	  });
 })();

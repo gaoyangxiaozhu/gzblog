@@ -2,7 +2,7 @@
 (function () {
   'use strict';
 
-  angular.module('jackblog.manage')
+  angular.module('gzblog.manage')
     .controller('BlogWriteCtrl', function ($scope,$state,Tags,$modal,$log,Blog,lodash,toaster) {
       //初始化markdown
       $scope.article = {
@@ -39,7 +39,7 @@
           }
         }).catch(function (err) {
           err = err.data.error_msg || '添加文章失败.';
-          toaster.pop('error', '', err);  
+          toaster.pop('error', '', err);
         });
       };
       //图片列表
@@ -82,7 +82,7 @@
                     $modalInstance.close(data.img_url);
                 }).error(function (err, status, headers, config) {
                     err = err.data.error_msg || '上传图片失败.';
-                    toaster.pop('error', '', err);  
+                    toaster.pop('error', '', err);
                 });
             }
         }

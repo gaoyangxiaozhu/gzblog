@@ -1,7 +1,7 @@
 (function () {
    'use strict';
 
-   angular.module('jackblog.directives')
+   angular.module('gzblog.directives')
        .directive('markdowneditor',function () {
            return {
                restrict:'A',
@@ -21,6 +21,5 @@
                     $(element).markdown({autofocus:false,savable:false});
                }
            };
-       }); 
+       });
 })();
-

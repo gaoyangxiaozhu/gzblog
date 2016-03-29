@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('jackblog.settings',[])
+  angular.module('gzblog.settings',[])
     .config(function ($stateProvider) {
       $stateProvider
         .state('signin', {

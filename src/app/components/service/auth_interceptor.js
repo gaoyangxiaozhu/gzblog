@@ -1,7 +1,7 @@
 (function () {
 	'use strict';
 
-	angular.module('jackblog.service')
+	angular.module('gzblog.service')
 		.factory('AuthInterceptor', function ($rootScope, $q, $cookies, $location, $injector) {
 			var Auth;
 		  return {
@@ -28,4 +28,3 @@
 		  };
 		});
 })();
-

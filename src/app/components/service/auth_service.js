@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('jackblog.service')
+  angular.module('gzblog.service')
     .factory('Auth', function Auth($location, $rootScope, $http, User, $cookies, $q,lodash, $window) {
       var currentUser = {};
       if($cookies.get('token')) {
@@ -89,4 +89,3 @@
       };
     });
 })();
-

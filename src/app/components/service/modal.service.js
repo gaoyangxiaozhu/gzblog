@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    angular.module('jackblog.service')
+    angular.module('gzblog.service')
         .factory('CustomModalService', function ($modal) {
           return {
             open: function (ctrlName,url,size) {
@@ -14,5 +14,3 @@
           };
         });
 })();
-
-

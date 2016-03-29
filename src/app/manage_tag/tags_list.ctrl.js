@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('jackblog.manage')
+  angular.module('gzblog.manage')
     .controller('TagsListCtrl', function ($scope,$modal,$state,$stateParams,Tags,toaster) {
       $scope.cid = $stateParams.cid || 0;
       //获取标签列表
@@ -28,7 +28,7 @@
 
           }).catch(function (err) {
             err = err.data.error_msg || '删除标签失败.';
-            toaster.pop('error', '', err);  
+            toaster.pop('error', '', err);
           });
         }
       };
@@ -84,7 +84,7 @@
                     $modalInstance.close();
                 }).catch( function(err) {
                   err = err.data.error_msg || '添加标签失败.';
-                  toaster.pop('error', '', err); 
+                  toaster.pop('error', '', err);
                 });
               }
         };
@@ -106,7 +106,7 @@
                   $modalInstance.close();
               }).catch( function(err) {
                 err = err.data.error_msg || '更新标签失败.';
-                toaster.pop('error', '', err); 
+                toaster.pop('error', '', err);
               });
             }
       };
@@ -116,4 +116,3 @@
       };
     });
 })();
-

@@ -1,6 +1,5 @@
 (function () {
 	'use strict';
 
-	angular.module('jackblog.service',[]);
+	angular.module('gzblog.service',[]);
 })();
-

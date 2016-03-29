@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('jackblog.manage')
+  angular.module('gzblog.manage')
     .controller('BlogListCtrl', function ($scope,$log,Blog,toaster) {
       //初始数据
       $scope.options = {

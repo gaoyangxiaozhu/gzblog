@@ -1,7 +1,7 @@
 (function () {
 	'use strict';
 
-	angular.module('jackblog')
+	angular.module('gzblog')
 	  .controller('SidebarCtrl', function ($scope) {
 	      $scope.name = "Jack Hu";
 	  });

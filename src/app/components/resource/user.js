@@ -1,7 +1,7 @@
 (function () {
 	'use strict';
 
-	angular.module('jackblog.resources')
+	angular.module('gzblog.resources')
 		.factory('User', function($resource){
 			var userResource = $resource('/api/users/:id/:controller', {
 					id: '@_id'

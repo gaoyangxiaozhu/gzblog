@@ -1,24 +1,24 @@
 (function () {
 	'use strict';
 
-	angular.module('jackblog', [
+	angular.module('gzblog', [
 			'ngAnimate',
 			'ngCookies',
 			'ngTouch',
 			'ngSanitize',
-			'ui.router', 
+			'ui.router',
 			'ui.bootstrap',
 			'ngLodash',
 			'ngProgress',
 			'toaster',
 			'ngFileUpload',
-			'jackblog.resources',
-			'jackblog.service',
-			'jackblog.filter',
-			'jackblog.directives',
-			'jackblog.manage',
-			'jackblog.article',
-			'jackblog.settings'
+			'gzblog.resources',
+			'gzblog.service',
+			'gzblog.filter',
+			'gzblog.directives',
+			'gzblog.manage',
+			'gzblog.article',
+			'gzblog.settings'
 		])
 	.config(function ($logProvider,$stateProvider, $urlRouterProvider, $locationProvider, $httpProvider,IsDebug) {
 	  $locationProvider.html5Mode(true);

@@ -1,7 +1,7 @@
 (function () {
    'use strict';
 
-   angular.module('jackblog')
+   angular.module('gzblog')
      .controller('MainCtrl', function ($scope,Blog,$log,Tags) {
         //获取标签列表
         Tags.getFrontTagList().then(function (result) {
@@ -48,24 +48,5 @@
             $scope.options.currentPage++;
             doPaging($scope.options);
         };
-        //更改排序项
-        $scope.changeSort = function(sortName){
-            //并初始化条件和列表。
-            $scope.options.currentPage = 1;
-            $scope.options.tagId = '';
-            $scope.options.sortName = sortName;
-             //将options存入localStorage
-             localStorage.options = JSON.stringify($scope.options);
-            doPaging($scope.options,true);
-        };
-        //更改标签
-        $scope.changeTag = function (tagId) {
-            $scope.options.currentPage = 1;
-            $scope.options.tagId = tagId;
-            $scope.options.sortName = '';
-             localStorage.options = JSON.stringify($scope.options);
-            doPaging($scope.options,true);
-        };
-
-     });   
+     });
 })();

@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('jackblog.manage')
+  angular.module('gzblog.manage')
     .controller('TagsManageCtrl', function ($scope,$modal,Tags,toaster) {
       //获取分类列表
       Tags.getTagCatList().then(function(result){
@@ -19,7 +19,7 @@
 
           }).catch(function (err) {
             err = err.data.error_msg || '删除标签分类失败.';
-            toaster.pop('error', '', err);  
+            toaster.pop('error', '', err);
           });
         }
       };
@@ -69,7 +69,7 @@
                     $modalInstance.close();
                 }).catch( function(err) {
                   err = err.data.error_msg || '添加标签分类失败.';
-                  toaster.pop('error', '', err);  
+                  toaster.pop('error', '', err);
                 });
               }
         };
@@ -86,7 +86,7 @@
                   $modalInstance.close();
               }).catch( function(err) {
                 err = err.data.error_msg || '修改标签分类失败.';
-                toaster.pop('error', '', err);  
+                toaster.pop('error', '', err);
               });
             }
       };
@@ -94,6 +94,5 @@
       $scope.cancel = function () {
         $modalInstance.dismiss('cancel');
       };
-    });  
+    });
 })();
-

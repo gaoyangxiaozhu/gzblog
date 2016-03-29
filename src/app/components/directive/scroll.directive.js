@@ -1,7 +1,7 @@
 (function () {
    'use strict';
 
-   angular.module('jackblog.directives')
+   angular.module('gzblog.directives')
        .directive('scrolltop',function ($window) {
            return {
                restrict:'EA',
@@ -30,6 +30,5 @@
                    });
                }
            };
-       }); 
+       });
 })();
-

@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('jackblog.settings')
+  angular.module('gzblog.settings')
     .controller('LocalSignInCtrl', function ($rootScope,$scope,Auth,$state,$log,toaster,$cookies) {
       $scope.loginOauth = function (provider) {
         Auth.snsLogin(provider,$rootScope.previousUrl);
@@ -43,7 +43,7 @@
       };
       $scope.loginPress = function(ev,form) {
         if (ev.which===13 && form.$valid){
-          ev.preventDefault(); 
+          ev.preventDefault();
           toLogin();
         }
       };

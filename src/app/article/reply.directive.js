@@ -1,7 +1,7 @@
 (function () {
 	'use strict';
 
-	angular.module('jackblog.article')
+	angular.module('gzblog.article')
 		.directive('reply',function (Comment,$log,toaster) {
 			return {
 				restrict:'EA',
