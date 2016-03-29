@@ -4,15 +4,12 @@
   .row{
     margin:0;
   }
-  @media (min-width: $screen-sm-min){
-    padding-left: $navbarSize;
-  }
-} 
+}
 .main-content{
   width: 100%;
   padding-top: 50px;
   min-height: 400px;
-  
+
   @media (min-width: $screen-sm-min){
     padding-top: 10px;
     padding-left: 35px;
@@ -94,7 +91,7 @@
         padding: 5px 10px;
         border: {
           width:1px;
-          style: solid 
+          style: solid
         };
         @include border-radius(14px);
         @include box-sizing(border-box);
@@ -121,6 +118,3 @@
     }
   }
 }
-
-
-

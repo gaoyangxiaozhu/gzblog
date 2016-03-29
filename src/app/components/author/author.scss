@@ -1,0 +1,34 @@
+.aritcle-author-box{
+    word-wrap: break-word;
+    margin-top: 20px;
+    padding: 20px 9px 4px 9px;
+    background: #fff6ed;
+    border: 1px solid #faefe3;
+    border-width: 0 1px;
+    .basic-info{
+        .userface{
+            display: table-cell;
+            vertical-align: top;
+            img{
+                width: 100%;
+                height: 100%;
+
+            }
+        }
+        .user-info{
+            display: table-cell;
+            vertical-align: top;
+            overflow: visible;
+            padding: 1px 0px 0px 9px;
+        }
+    }
+    .sep-line{
+        font-size: 0;
+        height: 0;
+        border-bottom: 1px solid #f5e9db;
+        margin: 5px;
+        overflow: hidden;
+    }
+
+
+}

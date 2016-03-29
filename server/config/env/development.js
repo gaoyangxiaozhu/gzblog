@@ -4,7 +4,7 @@
 // ==================================
 module.exports = {
   mongo: {
-    uri: 'mongodb://localhost/jackblog-dev'
+    uri: 'mongodb://localhost/gyyzyp-dev'
   },
   seedDB: true
 };

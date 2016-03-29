@@ -1,4 +1,4 @@
-/** 
+/**
  * 文章表
  */
 'use strict';
@@ -58,7 +58,9 @@ var ArticleSchema = new Schema({
     default: Date.now
   }
 });
-
+/**虚拟属性不写入数据库
+*这里通过info获取文章的所有信息以json对象返回
+*/
 ArticleSchema
   .virtual('info')
   .get(function() {

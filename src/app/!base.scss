@@ -23,49 +23,53 @@ $sort-layout: vertical;
 // $icons: sprite-map("sort/*.png",$new-position: 100%, $new-spacing: 55px, $new-repeat: no-repeat);
 // .icon-sort-desc { background: sprite($icons, desc); }
 
-$baseFontColor : #555;        //字体颜色
-$baseBorderColor: #d9d9d9;    //边框颜色
+$baseFontColor : #555;        //字体颜色 (浅灰)
+$baseBorderColor: #d9d9d9;    //边框颜色　灰白(217, 217, 217)
 $baseBgColor: white;          //网站背景颜色
-$linkBaseColor : #999;        //链接颜色
-$linkBaseHoverColor: #717171; //链接悬浮颜色
+$linkBaseColor : #999;        //链接颜色 深灰白(153, ...,...)
+$linkBaseHoverColor: #717171; //链接悬浮颜色 深深灰白（113, 113, 113）
 $linkTitleColor: #555;        //标题链接颜色
 $linkTitleHoverColor: black;  //标题链接悬浮颜色
-$linkLightColor: #4094c7;     //高亮链接颜色
-$linkLightHoverColor: #075b8d;//高亮链接悬浮颜色
+$linkLightColor: #4094c7;     //高亮链接颜色　64, 148, 199　蓝色
+$linkLightHoverColor: #075b8d;//高亮链接悬浮颜色　（7, 91, 141）　深蓝
 $tagActiveColor: white;       //标签激活字体颜色
-$tagActiveBgColor: #e78170;   //标签激活背景颜色
+$tagActiveBgColor: #e78170;   //标签激活背景颜色　（231, 129, 112）　粉红
 $tagBgColor: transparent;     //标签背景色
-$tagBdColor: #d9d9d9;         //标签边框颜色
+$tagBdColor: #d9d9d9;         //标签边框颜色　灰白(217, 217, 217)
 
-$nightFontColor : #999;
-$nightBorderColor: #2f2f2f;    
-$nightBgColor: #3f3f3f;
-$nightLinkBaseColor : #999;        
-$nightLinkBaseHoverColor: #717171; 
-$nightLinkTitleColor: #b1b1b1;        
-$nightLinkTitleHoverColor: white;  
-$nightLinkLightColor: #3dbcf5;     
-$nightLinkLightHoverColor: #4094c7;
-$nightTagActiveColor: white; 
-$nightTagActiveBgColor: black;    
-$nightTagBgColor: #2f2f2f;
-$nightTagBdColor: #2f2f2f;
 
 //navbar
-$navbarSize:45px;
-$navBgColor: #2a2a2a;
-$navBdColor: #f49484;
+$navbarWidth:100%;
+$navbarHeight: 60px;
+$navbarSmallHeight: 40px;
+$navBgColor: #2a2a2a;     //(42, 42, 42) 深黑色
+$navBdColor: #f49484;    //(244, 148, 132) 粉红色
 
-$navHoverBgColor: #f49484;
-$navActiveColor:#e78170;
-$navTextShadowColor: #de533a;
-$navShadowColor: #eee;
+$navHoverBgColor:#f49484;
+$navActiveColor:#2FCEB5;      //(47, 206, 181) 蓝色
+$navTextShadowColor:#de533a;    //(222, 83, 58)　橙红色
+$navShadowColor:#eee;     //(238, 238, 238)　偏白色
 
-$nightNavHoverBgColor: #555555;
-$nightNavActiveColor: #222222;
+$nightNavHoverBgColor: #555555;   //(85, 85, 85) 灰黑色
+$nightNavActiveColor: #222222;   //(34, 34, 34)黑色
 $nightNavTextShadowColor: black;
 $nightNavShadowColor: #2f2f2f;
 
+
+
+$nightFontColor : #999;
+$nightBorderColor: #2f2f2f;
+$nightBgColor: #3f3f3f;
+$nightLinkBaseColor : #999;
+$nightLinkBaseHoverColor: #717171;
+$nightLinkTitleColor: #b1b1b1;
+$nightLinkTitleHoverColor: white;
+$nightLinkLightColor: #3dbcf5;
+$nightLinkLightHoverColor: #4094c7;
+$nightTagActiveColor: white;
+$nightTagActiveBgColor: black;
+$nightTagBgColor: #2f2f2f;
+$nightTagBdColor: #2f2f2f;
 
 
 //sns
@@ -97,6 +101,7 @@ $nightMdQuoteBdColor: #2f2f2f;
 $nightMdQuoteBdLeftColor: #999;
 $nightMdQuoteBgColor: #555;
 
+//%占位选择器　占位选择器以%标识定义，通过@extend调用
 %fontOne{
   font-family: "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
 }
@@ -215,7 +220,7 @@ $nightMdQuoteBgColor: #555;
   .input-group-addon,.form-control{
     color: $formColor;
     background-color: $formBgColor;
-    border:1px solid $formBdColor;  
+    border:1px solid $formBdColor;
   }
   .input-group-addon{
     border-right: 0;
@@ -362,7 +367,7 @@ input.ng-valid.ng-dirty {
   @include formStyle();
   a.weibo,a.qq,a.github,a.google,a.wechat{background-color:$nightSnsBgColor;}
   @include tableStyle();
-} 
+}
 
 //下拉菜单
 .dropdown-menu li>a{
@@ -375,7 +380,7 @@ input.ng-valid.ng-dirty {
   padding: 60px 10px 10px;
   @media (min-width: $screen-sm-min){
       width:$mediaWidth;
-      padding: 20px 0 10px $navbarSize;
+      padding: 20px 0 10px 20px;
   }
 }
 //垂直居中容器
@@ -401,4 +406,3 @@ input.ng-valid.ng-dirty {
     background:rgba(0,0,0,0.8);
   }
 }
-

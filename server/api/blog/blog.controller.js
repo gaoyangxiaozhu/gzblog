@@ -31,7 +31,7 @@ exports.addBlog = function (req,res) {
 	return Blog.createAsync(req.body).then(function (result) {
 		return res.status(200).json({success: true,article_id:result._id});
 	}).catch(function (err) {
-	 	return res.status(500).send();	
+	 	return res.status(500).send();
 	});
 }
 //后台获取博客列表
@@ -67,7 +67,7 @@ exports.destroy = function (req,res) {
 			return res.status(200).send({success: true});
 		});
 	}).catch(function (err) {
-		return res.status(500).send();	
+		return res.status(500).send();
 	});
 }
 //更新博客
@@ -97,7 +97,7 @@ exports.updateBlog = function (req,res) {
 	Blog.findByIdAndUpdateAsync(id,req.body,{new:true}).then(function(article){
 		return res.status(200).json({success:true,article_id:article._id});
 	}).catch(function(err){
-		return res.status(500).send();	
+		return res.status(500).send();
 	});
 }
 //获取单篇博客
@@ -121,7 +121,7 @@ exports.uploadImage = function (req,res) {
 	qiniuHelper.upload(file.path,'blog/article/' + fileName).then(function (result) {
 		return res.status(200).json({success:true,img_url:result.url});
 	}).catch(function (err) {
-		return res.status(500).send();	
+		return res.status(500).send();
 	});
 }
 //将网络图片抓取到七牛
@@ -148,14 +148,13 @@ exports.fetchImage = function (req,res) {
 	qiniuHelper.fetch(req.body.url,'blog/article/' + fileName).then(function (result) {
 		return res.status(200).json({success:true,img_url:result.url});
 	}).catch(function (err) {
-		return res.status(500).send();	
+		return res.status(500).send();
 	});
 }
 //前台获取博客数量
 exports.getFrontBlogCount = function (req,res) {
-	var condition = {status:{$gt:0}};
+	var condition = {status:{$gt:0}}; //状态正常的article
 	if(req.query.tagId){
-		//tagId = new mongoose.Types.ObjectId(tagId);
 		var tagId = String(req.query.tagId);
 		condition = _.defaults(condition,{ tags: { $elemMatch: { $eq:tagId } } });
 	}
@@ -174,17 +173,31 @@ exports.getFrontBlogList = function (req,res) {
 	sort = "-" + sort;
 	var condition = {status:{$gt:0}};
 	if(req.query.tagId){
-		//tagId = new mongoose.Types.ObjectId(tagId);
 		var tagId = String(req.query.tagId);
-		condition = _.defaults(condition,{ tags: { $elemMatch: { $eq:tagId } } });		
+		condition = _.defaults(condition,{ tags: { $elemMatch: { $eq:tagId } } });
 	}
 	Blog.find(condition)
-		.select('title images visit_count comment_count like_count publish_time')
+		.populate('author_id')
+		.select('author_id title content images visit_count comment_count like_count publish_time')
 		.skip(startRow)
 		.limit(itemsPerPage)
 		.sort(sort)
-		.exec().then(function (list) {
-			return res.status(200).json({data:list});
+		.exec().then(function(list){
+			console.log(list);
+			/**
+			*	添加首页文章摘要信息　以及作者信息
+			*/
+			var blogList= list.map(function(item){
+
+				item = item.toObject();
+				item.author = item.author_id.nickname;
+				delete item.author_id;
+				item.abstract = item.content.trim().match(/<p>(.*?)<\/p>/i)[1];
+				delete item.content;
+
+				return item;
+			});
+			return res.status(200).json({data:blogList});
 		}).then(null,function (err) {
 			return res.status(500).send();
 		});
@@ -198,13 +211,21 @@ exports.getFrontArticle = function (req,res) {
 	});
 	//每次获取之后,将阅读数加1
 	return Blog.findByIdAsync(id,'-images').then(function(result) {
+		var data={};
+		data.article_info = result.info;
 		//将content markdown文档转成HTML
 		result.content = md.render(result.content);
 		result.visit_count++;
 		Blog.findByIdAndUpdateAsync(id,{$inc:{visit_count:1}});
-		return res.status(200).json({data:result.info});
+		// 获取文章作者相关信息
+		var author_id = result.author_id;
+		User.findByIdAsync(author_id).then(function(author){
+			data.author_info = author.userInfo;
+			return res.status(200).json(data);
+		})
+
 	}).catch(function (err) {
-		return res.status(500).send();	
+		return res.status(500).send();
 	});
 
 }
@@ -282,7 +303,7 @@ exports.getIndexImage = function (req,res) {
 exports.toggleLike = function (req,res) {
 	var aid = new mongoose.Types.ObjectId(req.params.id);
   var userId = req.user._id;
-  //如果已经喜欢过了,则从喜欢列表里,去掉文章ID,并减少文章喜欢数.否则添加到喜欢列表,并增加文章喜欢数.	
+  //如果已经喜欢过了,则从喜欢列表里,去掉文章ID,并减少文章喜欢数.否则添加到喜欢列表,并增加文章喜欢数.
   //var isLink = _.indexOf(req.user.likeList.toString(), req.params.id);
   var isLike = _.findIndex(req.user.likeList, function(item) {
     return item.toString() == req.params.id;

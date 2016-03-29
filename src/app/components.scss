@@ -6,11 +6,7 @@
 	top: 0;
 	z-index: 1000;
 	width: 100%;
-	height:$navbarSize;
-	@media (min-width: $screen-sm-min) {
-		width: $navbarSize;
-		height: 100%;
-	}
+	height:$navbarHeight;
 	//菜单
 	.navbar-menu{
 		position: relative;
@@ -50,8 +46,8 @@
 	//缩小屏幕样式
 	@at-root .navbar-shrink{
 		.navbar-item{
-			width: $navbarSize;
-			height: $navbarSize;
+			width: $navbarWidth;
+			height: $navbarSmallHeight;
 		}
 		a.shrink-avatar{
 			position: relative;
@@ -96,7 +92,7 @@
 	@at-root .navbar-menu{
 		a.navbar-item{
 			float: left;
-			width: $navbarSize;
+			width: $navbarWidth;
 			&:hover{
 		    background-color: $navHoverBgColor;
 		    color:white;
@@ -149,7 +145,6 @@
   top: 0;
   right: 0;
   bottom: 0;
-  left: $navbarSize;
   padding: 0;
   @include box-sizing(border-box);
   min-height: 100px;
@@ -190,7 +185,7 @@ footer {
   	margin:0;
   	color: $nightFontColor;
   	font-size: $font-size-small;
-    padding-left: $navbarSize + 20;
+    padding-left: 20;
     vertical-align: middle;
     ul{
     	margin:0;
@@ -203,8 +198,6 @@ footer {
 	padding: 10px 45px;
 	text-align: center;
 	.footer-container{
-		padding:0; 
+		padding:0;
 	}
 }
-
-

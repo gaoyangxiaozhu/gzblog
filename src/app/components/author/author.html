@@ -1,0 +1,30 @@
+<div class="basic-info" ng-controller="AuthorCtrl">
+    <div class="userface">
+        <img src="" alt="" />
+    </div>
+    <div class="user-info">
+        <span>常居</span>
+        <span class="address">北京</span>
+        <br>
+        <span class="nickname desc">{{ author.nickname }}</span>
+        <br>
+        <span class= "jointime desc">2016-03-12</span><span>加入</span>
+        <br>
+        </div>
+    </div>
+    <div class="sep-line"></div>
+    <div class="user-intro">
+        <span id="desc">
+            {{ author.desc }}
+        </span>
+        <div class="sep-line"></div>
+        <div>
+            <span>email</span>
+            <span class="email">{{ author.email }}</span>
+            <br>
+            <span>blog</span>
+            <span class="blog"><a href="{{ author.blog }}">{{ author.blog }}</a></span>
+        </div>
+    </div>
+
+</div>

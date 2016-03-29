@@ -1,4 +1,4 @@
-/** 
+/**
  * 用户表
  */
 'use strict';
@@ -9,9 +9,6 @@ var crypto = require('crypto');
 
 
 var UserSchema = new Schema({
-	// username:{
-	// 	type:String,
-	// },
 	nickname:String,
 	email: {
 		type: String,
@@ -67,23 +64,27 @@ var UserSchema = new Schema({
 		type : String ,
 		default : 'user'
 	},
-	avatar:String,
-  status:{
-  	type:Number,
-  	default:0
-  },
+	avatar: String,
+	desc: String,
+	blog: String,
+	status:{
+	  	type:Number,
+	  	default:0
+	  },
 	created: {
 		type: Date,
 		default: Date.now
 	},
-  updated: {
-    type: Date,
-    default: Date.now
+   updated: {
+    	type: Date,
+    	default: Date.now
   }
 });
 
 /**
  * Virtuals
+ * 可以通过user.password获取　密码
+ *　可以通过user.password='xxx'　设置密码　
  */
 UserSchema
   .virtual('password')
@@ -106,7 +107,9 @@ UserSchema
       'email': this.email,
       'avatar': this.avatar,
       'likes':this.likeList,
-      'provider':this.provider
+      'provider':this.provider,
+	  'desc': this.desc,
+	  'blog': this.blog
     };
   });
 

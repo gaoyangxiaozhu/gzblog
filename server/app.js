@@ -22,6 +22,7 @@ fs.readdirSync(modelsPath).forEach(function (file) {
 });
 
 // 初始化数据
+console.log(config.seedDB);
 if(config.seedDB) { require('./config/seed'); }
 
 var app = express();

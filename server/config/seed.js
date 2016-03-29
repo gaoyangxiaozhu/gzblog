@@ -10,17 +10,26 @@ var mongoose = require('mongoose'),
 	TagCategory = mongoose.model('TagCategory'),
 	Tag = mongoose.model('Tag');
 var Promise = require('bluebird');
-
 	//初始化标签,文章,用户
 	if(process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test'){
 		User.countAsync().then(function (count) {
 			 if(count === 0){
 			 	User.removeAsync().then(function () {
 			 		User.createAsync({
-			 			nickname:'admin',
+			 			nickname:'gyy',
 			 			email:'admin@admin.com',
 			 			role:'admin',
 			 			password:'admin',
+						desc: '我是高阳阳，一个喜欢乱捣鼓的人，喜欢电影，音乐，喜欢python,nodeJs,以及前端相关的内容',
+						blog: 'http://gyyzyp.com',
+			 			status:1
+			 		},{
+			 			nickname:'zyp',
+			 			email:'gyyzyp@163.com',
+			 			role:'admin',
+			 			password:'admin',
+						desc: '我是小朱，博主的女友，哈哈哈',
+						blog: 'http://gyyzyp.com',
 			 			status:1
 			 		},{
 			 			nickname:'test001',
@@ -66,7 +75,7 @@ var Promise = require('bluebird');
 							name:'react',
 							cid:cat._id,
 							is_show:true
-						})					
+						})
 					}).then(function () {
 						return TagCategory.createAsync({
 							name:'system',
@@ -84,7 +93,7 @@ var Promise = require('bluebird');
 								name:'android',
 								cid:cat._id,
 								is_show:true
-							})					
+							})
 						});
 					}).then(function () {
 						return TagCategory.createAsync({
@@ -95,7 +104,7 @@ var Promise = require('bluebird');
 								name:'git',
 								cid:cat._id,
 								is_show:true
-							});					
+							});
 						});
 					}).then(function () {
 						return Tag.findAsync().then(function (tags) {
@@ -121,7 +130,19 @@ var Promise = require('bluebird');
 						tags:[tag._id],
 						status:1
 					})
+				}).then(function(){
+					//增加author_id
+					User.findAsync({'role':'admin'}).then(function(users){
+
+						return Article.findAsync().then(function(articles){
+							articles.forEach(function(article, index){
+								article.author_id= users[parseInt(Math.random()*users.length)]._id;
+								article.save();
+							})
+						});
+					});
 				});
+
 			}
-		})
+		});
 	}
