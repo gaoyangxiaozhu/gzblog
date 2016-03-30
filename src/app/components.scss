@@ -7,11 +7,27 @@
 	z-index: 1000;
 	width: 100%;
 	height:$navbarHeight;
+	.logo{
+		font-size: 18px;
+		display: inline-block;
+		height: 100%;
+		padding-left: 10%;
+		line-height: $navbarHeight;
+		a{
+			color:white;
+		}
+		margin:0;
+	}
 	//菜单
 	.navbar-menu{
 		position: relative;
-		left:0;
-		top:0;
+		padding-left: 10%;
+		padding-right: 10%;
+		height: 100%;
+		float:right;
+		> li{
+			float: left;
+		}
 	}
 	//小屏幕收缩工具栏
 	.navbar-shrink{
@@ -22,13 +38,9 @@
 	}
 	//大屏幕展开工具栏,默认隐藏
 	.navbar-expanded{
-		display: none !important;
+		display: none;
 		@media (min-width: $screen-sm-min){
-			display: block !important;
-			position: absolute;
-			bottom: 0;
-			width: 100%;
-			padding-bottom: 5px;
+			display: block;
 		}
 	}
 }
@@ -91,33 +103,48 @@
 	//导航菜单
 	@at-root .navbar-menu{
 		a.navbar-item{
-			float: left;
-			width: $navbarWidth;
+			display: inline-block;
+			padding: 5px 10px;
+			height: $navbarHeight;
+			line-height: $navbarHeight;
+
 			&:hover{
 		    background-color: $navHoverBgColor;
 		    color:white;
 			}
 		}
-		.active{
-			background-color: $navActiveColor;
+		a.active{
       color: white;
-      @include text-shadow(0 1px 0 #de533a);
 		}
-		.logo{
-			font-size: 18px;
+
+		.dropdown-menu{
+			margin: 0 0 0;
+			padding: 0 0;
+			a{
+				padding: 8px 0;
+				text-align: center;
+				&:hover{
+					background-color: $navHoverBgColor;
+					color:white;
+				}
+				&.active{
+					color: inherit;
+				}
+			}
 		}
+
 	}
 	//展开样式
 	@at-root .navbar-expanded{
-		a.navbar-item{
+		.navbar-item{
 			&:hover{
 				color:white;
 			}
 		}
-		a.active{
+		.active{
 			color: white;
 		}
-		a.expanded-avatar{
+		.expanded-avatar{
 	    padding:5px;
 	    img{
 	      width: 32px;
@@ -133,9 +160,6 @@
 	    }
 		}
 	}
-  .tooltip.nav-tooltip .tooltip-inner {
-      min-width: 40px;
-  }
 }
 
 /**********************sidebar***************/

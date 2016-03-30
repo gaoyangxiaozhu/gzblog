@@ -1,6 +1,9 @@
 //主页部分
 .main-box{
   padding: 0;
+  @media (min-width: $screen-sm-min){
+      margin-top: $navbarHeight;
+  }
   .row{
     margin:0;
   }
