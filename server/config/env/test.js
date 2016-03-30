@@ -4,7 +4,7 @@
 // ===========================
 module.exports = {
   mongo: {
-    uri: 'mongodb://localhost/jackblog-test'
+    uri: 'mongodb://localhost/gzblog-test'
   },
   port:    process.env.PORT || 8080,
   seedDB: true

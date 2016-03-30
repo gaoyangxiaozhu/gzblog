@@ -14,7 +14,7 @@ var gulpNgConfig = require('gulp-ng-config');
 //配置环境任务
 gulp.task('dev-config',function () {
   return gulp.src('app.conf.json')
-        .pipe(gulpNgConfig('jackblog',{
+        .pipe(gulpNgConfig('gzblog',{
           environment: 'development',
           createModule: false,
           wrap: "(function(){\n 'use strict'; \n <%= module %> \n })();"
@@ -23,7 +23,7 @@ gulp.task('dev-config',function () {
 });
 gulp.task('test-config',function () {
   return gulp.src('app.conf.json')
-        .pipe(gulpNgConfig('jackblog',{
+        .pipe(gulpNgConfig('gzblog',{
           environment: 'test',
           createModule: false,
           wrap: "(function(){\n 'use strict'; \n <%= module %> \n })();"
@@ -32,7 +32,7 @@ gulp.task('test-config',function () {
 });
 gulp.task('prod-config',function () {
   return gulp.src('app.conf.json')
-        .pipe(gulpNgConfig('jackblog',{
+        .pipe(gulpNgConfig('gzblog',{
           environment: 'production',
           createModule: false,
           wrap: "(function(){\n 'use strict'; \n <%= module %> \n })();"
@@ -146,4 +146,3 @@ gulp.task('inject', ['scripts', 'styles:compass'], function () {
 
 });
 /*****************inject(css,js注入html) end*********************************************/
-

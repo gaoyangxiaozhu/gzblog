@@ -1,8 +1,8 @@
 {
-  "name": "jackblog",
+  "name": "gzblog",
   "version": "1.0.0",
-  "description": "一个完整的博客系统,基于REST架构,使用Node.js + Express + Mongodb + Angular,仿简书模板.",
-  "repository": "https://github.com/jackhutu/jackblog-express-angular",
+  "description": "多人博客系统",
+  "repository": "https://github.com/gaoyangxiaozhu/gzblog",
   "license": "MIT",
   "dependencies": {
     "bluebird": "^2.10.1",
