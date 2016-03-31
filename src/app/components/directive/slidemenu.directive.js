@@ -7,6 +7,8 @@
                restrict:'EA',
                link:function (scope, element, attrs) {
                    var that = element;
+                   that.after($('<div class="slider-box"></div>'));
+
                    scope.$watch(scope.isLoggedIn, function(){
                      var mainLinks = that.find('.navbar-item');
                      var slideBox = that.siblings('.slider-box');
