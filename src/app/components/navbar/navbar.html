@@ -4,41 +4,44 @@
       Gyyzyp's blog
     </a>
   </h1>
-  <ul class="navbar-menu">
-    <li>
-      <div class="dropdown">
-        <a href="#" class="navbar-item" ng-if="isAdmin()" data-toggle="dropdown" id="submenu">用户管理</a>
-        <ul class="dropdown-menu"  aria-labelledby="submenu">
-          <li><a class="submenu-item" ui-sref-active="active" ui-sref="userList()"><i class="fa fa-users"></i>用户管理</a></li>
-          <li><a class="submenu-item" ui-sref-active="active" ui-sref="blogList()"><i class="fa fa-book"></i>文章管理</a></li>
-          <li>  <a class="submenu-item" ui-sref-active="active" ui-sref="tagsManage()"><i class="fa fa-tags">标签管理</i></a></li>
-        </ul>
 
-      </div>
-
-    </li>
+    <ul class="navbar-menu" slide-menu>
       <li>
-        <a class="navbar-item change-mode" href="javascript:;" ng-click="changeMode()">
-          <i ng-if="dayMode" class="fa fa-moon-o"></i>
-          <i ng-if="!dayMode" class="fa fa-sun-o"></i>
+        <div class="dropdown">
+          <a href="#" class="navbar-item active" ng-if="isAdmin()" data-toggle="dropdown" id="submenu">主站管理</a>
+          <ul class="dropdown-menu"  aria-labelledby="submenu">
+            <li><a class="submenu-item" ui-sref-active="active" ui-sref="userList()"><i class="fa fa-users"></i>用户管理</a></li>
+            <li><a class="submenu-item" ui-sref-active="active" ui-sref="blogList()"><i class="fa fa-book"></i>文章管理</a></li>
+            <li>  <a class="submenu-item" ui-sref-active="active" ui-sref="tagsManage()"><i class="fa fa-tags">标签管理</i></a></li>
+          </ul>
+
+        </div>
+
+      </li>
+        <li>
+          <a class="navbar-item change-mode" ng-class="{'active':!isLoggedIn()}"href="javascript:;" ng-click="changeMode()">
+            <i ng-if="dayMode" class="fa fa-moon-o"></i>
+            <i ng-if="!dayMode" class="fa fa-sun-o"></i>
+          </a>
+        </li>
+
+      <li ng-if="isLoggedIn()" class="navbar-expanded">
+
+        <a href="javascript:;" class="navbar-item expanded-logout" ng-click="logout()">
+            注销
+        </a>
+        <a class="expanded-avatar" ui-sref="setting()">
+          <img ng-src="{{ getCurrentUser().avatar || default_avatar}}" />
         </a>
       </li>
+      <li ng-if="!isLoggedIn()" class="navbar-expanded">
+        <a class="navbar-item" ui-sref-active="active" ui-sref="signin()">
+          登陆
+        </a>
+      </li>
+    </ul>
+  
 
-    <li ng-if="isLoggedIn()" class="navbar-expanded">
-
-      <a href="javascript:;" class="navbar-item expanded-logout" ng-click="logout()">
-          <i class="fa fa-sign-out"></i>
-      </a>
-      <a class="navbar-item expanded-avatar" ui-sref="setting()">
-        <img ng-src="{{ getCurrentUser().avatar || default_avatar}}" />
-      </a>
-    </li>
-    <li ng-if="!isLoggedIn()" class="navbar-expanded">
-      <a class="navbar-item" ui-sref-active="active" ui-sref="signin()">
-        <i class="fa fa-sign-in"></i>
-      </a>
-    </li>
-  </ul>
 
 
 
