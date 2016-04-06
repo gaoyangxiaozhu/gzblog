@@ -31,7 +31,6 @@
              });
             //获取列表
             Blog.getFrontBlogList(options).then(function(result){
-              for(var i=0; i<=1000000000; i++);
                 $scope.isLoading = false;
                 if(isReset){
                     $scope.blogList = result.data;
