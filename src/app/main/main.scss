@@ -109,15 +109,14 @@
   .load-more {
     margin-bottom: 30px;
     text-align: center;
-    .ladda-button {
-      background: $navActiveColor;
-      border-color: $navActiveColor;
-      padding: 14px 18px;
-      font-size: 1.2em;
-      cursor: pointer;
-      color: white;
-      border: 1px solid transparent;
-      @include border-radius(2px);
+    .loading{
+      position:fixed;
+      top:45%;
+      left: 45%;
+      .fa{
+        font-size: 70px;
+      }
     }
+
   }
 }

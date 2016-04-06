@@ -24,7 +24,7 @@ $sort-layout: vertical;
 // .icon-sort-desc { background: sprite($icons, desc); }
 
 $baseFontColor : #555;        //字体颜色 (浅灰)
-$baseBorderColor: #d9d9d9;    //边框颜色　灰白(217, 217, 217)
+$baseBorderColor: #909398;    //边框颜色　灰白(217, 217, 217)
 $baseBgColor: white;          //网站背景颜色
 $linkBaseColor : #999;        //链接颜色 深灰白(153, ...,...)
 $linkBaseHoverColor: #717171; //链接悬浮颜色 深深灰白（113, 113, 113）
@@ -32,6 +32,7 @@ $linkTitleColor: #555;        //标题链接颜色
 $linkTitleHoverColor: black;  //标题链接悬浮颜色
 $linkLightColor: #4094c7;     //高亮链接颜色　64, 148, 199　蓝色
 $linkLightHoverColor: #075b8d;//高亮链接悬浮颜色　（7, 91, 141）　深蓝
+$linkActiveColor: #f49484;
 $tagActiveColor: white;       //标签激活字体颜色
 $tagActiveBgColor: #e78170;   //标签激活背景颜色　（231, 129, 112）　粉红
 $tagBgColor: transparent;     //标签背景色

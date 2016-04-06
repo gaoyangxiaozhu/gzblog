@@ -253,3 +253,38 @@ footer {
 		padding:0;
 	}
 }
+/*******************pagination*******************/
+.pagination li a,
+.pagination li a:hover,
+.pagination li.active a,
+.pagination li.active a:hover{
+	background-color: transparent;
+	border: 1px solid transparent;
+}
+.pagination li:not(:first-child) a{
+		margin-left: 10px;
+}
+.pagination li.disabled a{
+	display: none;
+}
+.pagination{
+	li{
+		 a:hover{
+				 border-color: $baseBorderColor;
+			 }
+		 &.active{
+			 a, a:hover{
+				 	color: $linkActiveColor;
+					background-color: transparent;
+					border-color: $linkActiveColor;
+				}
+		 }
+		 &:first-child,
+		 &:last-child{
+			 a:hover{
+				 border-color: transparent;
+				 color: $linkActiveColor;
+			 }
+		 }
+	}
+}
