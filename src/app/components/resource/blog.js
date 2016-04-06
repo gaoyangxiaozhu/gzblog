@@ -130,7 +130,6 @@
         getFrontBlogList:function (data, callback) {
           var cb = callback || angular.noop;
           return blogResource.getFrontBlogList(data,function(result) {
-              console.log(result);
             return cb(result);
           }, function(err) {
               console.log('err: '+err);

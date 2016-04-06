@@ -26,14 +26,15 @@
             </div>
             </div>
         </li>
-        <li class="no-content" ng-if="(blogCount < 1)">正在大力回车.....</li>
+
       </ul>
 
       <div class="load-more">
-        <button ng-click="loadMore()" ng-disabled="isLoading" class="ladda-button" ng-show="(options.currentPage < numPages)">
-          <span ng-hide="isLoading" class="ladda-label">点击查看更多</span>
-          <span ng-show="isLoading" class="ladda-spinner"><i class="fa fa-spinner fa-spin"></i></span>
-        </button>
+        <paging page="options.currentPage" page-size="options.itemsPerPage" total="blogCount" dots="......" pg-href="page/{page}" hide-if-empty="true" show-prev-next="true"  paging-action="loadMore(page)"></paging>
+        <div class="loading">
+           <span class="no-content" ng-if="(blogCount < 1)">正在大力回车.....</span>
+            <span ng-show="isLoading" class="ladda-spinner"><i class="fa fa-spinner fa-spin"></i></span>
+        </div>
       </div>
 
 

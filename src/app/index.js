@@ -2,6 +2,7 @@
 	'use strict';
 
 	angular.module('gzblog', [
+			'bw.paging',
 			'ngAnimate',
 			'ngCookies',
 			'ngTouch',

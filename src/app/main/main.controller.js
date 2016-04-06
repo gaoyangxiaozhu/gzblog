@@ -10,7 +10,7 @@
         //初始数据
         $scope.options = {
             currentPage:1,              //当前页数
-            itemsPerPage:10,            //每页显示的条数
+            itemsPerPage:5,            //每页显示的条数
             sortName:'publish_time',    //排序项
             tagId: ''
         };
@@ -23,6 +23,7 @@
         $scope.blogList = [];
         function doPaging(options,isReset) {
              $scope.isLoading = true;
+
              //数量需要过滤
              Blog.getFrontBlogCount(options).then(function(result){
                 $scope.blogCount = result.count;
@@ -30,6 +31,7 @@
              });
             //获取列表
             Blog.getFrontBlogList(options).then(function(result){
+              for(var i=0; i<=1000000000; i++);
                 $scope.isLoading = false;
                 if(isReset){
                     $scope.blogList = result.data;
@@ -42,11 +44,12 @@
             });
         }
         //初始化列表
-        doPaging($scope.options);
+        doPaging($scope.options, true);
         //加载更多
-        $scope.loadMore = function(){
-            $scope.options.currentPage++;
-            doPaging($scope.options);
+        $scope.loadMore = function(page){
+            $scope.options.currentPage = page;
+
+            doPaging($scope.options, true);
         };
      });
 })();
